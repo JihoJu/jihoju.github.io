@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>1 - Operating System Introduction - Jiho Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jiho Blog"><meta name="msapplication-TileImage" content="/img/logo.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jiho Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="들어가며평소에 개발자로 성장하기에 있어 Operating System 은 아주 중요하다는 얘기를 종종 듣게된다. 아직 현업에서 일해보지 않아 어떤 일을 하는데 있어 필요한지 경험을 해보진 못했지만 이번 OS 수업을 수강하며 최대한 이해하고 정리한 내용을 포스팅 하려고 합니다. 교수님의 수업 자료와 Operating Systems: Three Easy Pie"><meta property="og:type" content="blog"><meta property="og:title" content="1 - Operating System Introduction"><meta property="og:url" content="http://example.com/2021/09/03/OS-0/"><meta property="og:site_name" content="Jiho Blog"><meta property="og:description" content="들어가며평소에 개발자로 성장하기에 있어 Operating System 은 아주 중요하다는 얘기를 종종 듣게된다. 아직 현업에서 일해보지 않아 어떤 일을 하는데 있어 필요한지 경험을 해보진 못했지만 이번 OS 수업을 수강하며 최대한 이해하고 정리한 내용을 포스팅 하려고 합니다. 교수님의 수업 자료와 Operating Systems: Three Easy Pie"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/OS/os_cover.jpeg"><meta property="article:published_time" content="2021-09-03T07:08:27.000Z"><meta property="article:modified_time" content="2021-09-15T06:52:50.900Z"><meta property="article:author" content="Jiho Ju"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/OS/os_cover.jpeg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/09/03/OS-0/"},"headline":"1 - Operating System Introduction","image":[],"datePublished":"2021-09-03T07:08:27.000Z","dateModified":"2021-09-15T06:52:50.900Z","author":{"@type":"Person","name":"Jiho Ju"},"publisher":{"@type":"Organization","name":"Jiho Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.png"}},"description":"들어가며평소에 개발자로 성장하기에 있어 Operating System 은 아주 중요하다는 얘기를 종종 듣게된다. 아직 현업에서 일해보지 않아 어떤 일을 하는데 있어 필요한지 경험을 해보진 못했지만 이번 OS 수업을 수강하며 최대한 이해하고 정리한 내용을 포스팅 하려고 합니다. 교수님의 수업 자료와 Operating Systems: Three Easy Pie"}</script><link rel="canonical" href="http://example.com/2021/09/03/OS-0/"><link rel="icon" href="/img/logo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Jiho Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jiahho"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/OS/os_cover.jpeg" alt="1 - Operating System Introduction"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021, 09 03" title="2021. 9. 3. 오후 4:08:27">2021-09-03</time></span><span class="level-item"><a class="link-muted" href="/categories/OS/">OS</a></span></div></div><h1 class="title is-3 is-size-4-mobile">1 - Operating System Introduction</h1><div class="content"><h1 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h1><p>평소에 개발자로 성장하기에 있어 Operating System 은 아주 중요하다는 얘기를 종종 듣게된다. 아직 현업에서 일해보지 않아 어떤 일을 하는데 있어 필요한지 경험을 해보진 못했지만 이번 OS 수업을 수강하며 최대한 이해하고 정리한 내용을 포스팅 하려고 합니다. 교수님의 수업 자료와 Operating Systems: Three Easy Pieces를 기반으로 정리하여 포스팅하려 합니다.</p>
+<span id="more"></span>
+
+<h1 id="Computer-Science-vs-Engineering"><a href="#Computer-Science-vs-Engineering" class="headerlink" title="Computer Science vs Engineering"></a>Computer Science vs Engineering</h1><ul>
+<li>  <strong>Science</strong>: 이론, 연구를 통해 정답을 도출하는 과정</li>
+<li>  <strong>Engineering</strong>: 주어진 환경 속에서 문제를 해결하는 과정</li>
+</ul>
+<h1 id="What-is-a-Computer-or-Computer-System"><a href="#What-is-a-Computer-or-Computer-System" class="headerlink" title="What is a Computer or Computer System"></a>What is a Computer or Computer System</h1><h2 id="Application-Software"><a href="#Application-Software" class="headerlink" title="Application Software"></a>Application Software</h2><ul>
+<li>  High Level Language 로 작성된다. (C/C++, Python, SQL …)</li>
+</ul>
+<h2 id="System-Software"><a href="#System-Software" class="headerlink" title="System Software"></a>System Software</h2><ul>
+<li><p>  <strong>Compiler</strong> : HLL 을 Machine code 로 translate 해준다.</p>
+</li>
+<li><p><strong>Operating System</strong> : hardware 를 관리하는데 있어 다양한 concept 들을 제공해준다.</p>
+<p>  (Window, Unix, Linux, DOS …)</p>
+<ul>
+<li>  Handling input/output</li>
+<li>  Managing memory &amp; storage</li>
+<li>  Scheduling tasks &amp; sharing resources</li>
+</ul>
+</li>
+</ul>
+<h2 id="Computer-Hardware"><a href="#Computer-Hardware" class="headerlink" title="Computer Hardware"></a>Computer Hardware</h2><ul>
+<li>  Processor, Memory, I/O controllers</li>
+</ul>
+<h1 id="What-is-Operating-System"><a href="#What-is-Operating-System" class="headerlink" title="What is Operating System"></a>What is Operating System</h1><h2 id="왜-Why-OS-가-hardware-를-관리해주는가"><a href="#왜-Why-OS-가-hardware-를-관리해주는가" class="headerlink" title="왜 Why? OS 가 hardware 를 관리해주는가??"></a>왜 Why? OS 가 hardware 를 관리해주는가??</h2><p><code> OS 역사를 봤을 때 초기엔 OS 가 아닌 컴퓨터 사용자가 직접 hardware 를 관리를 해줬다. 시간이 지나며 hardware 는 성능이 좋아지고 점점 더 복잡해졌다. 그로 인해 각 user 들이 관리하기 힘들어졌을 뿐만 아니라 직접 관리의 위험성이 커졌다. 그래서 hardware 를 관리해주는 OS 가 필요해지며 나타났다.</code></p>
+<p>Users applications 와 computer hardware 사이에 있는 Software layer 이다.</p>
+<p>⇒ computer hardware 와 user applications software 를 <strong>interfacing</strong> 해준다.</p>
+<p><img src="/img/OS/os2_1.png" alt="Untitled"></p>
+<ul>
+<li><p><strong>System call library</strong> : Hardware 가 관리하는 서비스를 사용. 즉, Hardware 와 통신하는 통로</p>
+<p>  ⇒ <strong>안정성을 위함</strong>.</p>
+</li>
+</ul>
+<h1 id="Two-Perspectives-in-Operationg-System"><a href="#Two-Perspectives-in-Operationg-System" class="headerlink" title="Two Perspectives in Operationg System"></a>Two Perspectives in Operationg System</h1><h2 id="Hardware-관점"><a href="#Hardware-관점" class="headerlink" title="Hardware 관점"></a>Hardware 관점</h2><h3 id="제한된-자원을-관리"><a href="#제한된-자원을-관리" class="headerlink" title="제한된 자원을 관리"></a>제한된 자원을 관리</h3><ul>
+<li><p>Hardware Resources 를 효율적으로 관리 → maximize the performance</p>
+<p>  ⇒ <strong>한정된 자원으로 컴퓨터의 최대의 성능을 내기 위함</strong></p>
+</li>
+<li><p>Hardware Resources 를 공평하게 할당(분배) → guarantee user experience</p>
+<p>  ⇒ <strong>다양한 접근(Multiprogramming)에 대해 공정하게 자원들을 분배</strong></p>
+</li>
+</ul>
+<p>guarantee user experience? : 만약 한 자원에 여러 access 가 있을 시 한 access 요청이 끝날 때 까지 자원을 할당해주게 되면 뒤에 있는 다른 access 들은 아무것도 안하고 기다리고 있을 수 있다. 이러한 현상을 방지하기 위해 Round Robin 방식으로 자원을 공정하게 할당해주면 다양한 접근들에 효율적으로 자원을 분배할 수 있을 것이다.</p>
+<h2 id="Applications-관점"><a href="#Applications-관점" class="headerlink" title="Applications 관점"></a>Applications 관점</h2><h3 id="Computer-System-을-편리하게-사용하게-함"><a href="#Computer-System-을-편리하게-사용하게-함" class="headerlink" title="Computer System 을 편리하게 사용하게 함"></a>Computer System 을 편리하게 사용하게 함</h3><ul>
+<li>  User program 을 실행해주고 User Problems 을 해결해준다.</li>
+</ul>
+<h1 id="A-role-of-Operating-Systems"><a href="#A-role-of-Operating-Systems" class="headerlink" title="A role of Operating Systems"></a>A role of Operating Systems</h1><ul>
+<li>각 사용자가 하드웨어 자원들을 독점하게끔 느낄 수 있도록 <strong>illusion</strong> 을 제공한다.<ul>
+<li>  Virtualization</li>
+</ul>
+</li>
+<li>복잡한 하드웨어 구조들을 숨겨주면서 사용자들이 컴퓨터 하드웨어를 편리하게 사용하게끔 해준다.<ul>
+<li>  Abstraction</li>
+</ul>
+</li>
+</ul>
+<h1 id="Three-Main-Features-of-Operating-Systems"><a href="#Three-Main-Features-of-Operating-Systems" class="headerlink" title="Three Main Features of Operating Systems"></a>Three Main Features of Operating Systems</h1><p>현대 OS는 3개의 목적을 위해 다양한 기법들이 개발되었고 현재에도 개발되고 있다. 이 책에서는 3가지 목적을 위해 OS가 등장했다고 소개하고 있다. 그럼 어떤 목적이 있고 각 목적이 어떤 담당을 하는지 간단하게 정리해보겠다. 이번 글은 각 개념을 소개하는 글이므로 추후에 각 개념에 대해 자세히 정리해서 포스팅 하겠습니다:)</p>
+<h2 id="Virtualization"><a href="#Virtualization" class="headerlink" title="Virtualization"></a>Virtualization</h2><ul>
+<li>CPU Virtualization (Scheduling, Process, …)<ul>
+<li>  한 개의 CPU(or 프로세서)에서 여러 개의 프로그램들이 동시에 실행되는 것처럼 보이게끔 해준다.</li>
+<li>  사용 시스템이 여러 개의 CPU를 가지고 있다는 illusion(환상)을 준다.</li>
+</ul>
+</li>
+<li>Memory Virtualization (Paging, Address Translation…)<ul>
+<li>  각 프로그램(프로세스)들이 자기만의 크고 빠른 메로리를 가지고 있다는 illusion을 준다.</li>
+<li>  실제 Physical memory 는 OS에 관리되는 한정된 공유 자원이다. 이 자원을 메모리 간섭 없이 각 프로세스가 자신만의 가상 주소 공간을 가지고 있다고 illusion(환상)을 준다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h2><p>동시에 프로그램들을 여러 개 수행해도 한 프로그램을 실행할 때와 동일하게 결과로 처리하겠다는 개념이다.</p>
+<ul>
+<li>  Threads, Locks and semaphores, Deadlocks…</li>
+</ul>
+<h2 id="Persistence"><a href="#Persistence" class="headerlink" title="Persistence"></a>Persistence</h2><p>이 개념은 <strong>“신뢰성”</strong> 이란 단어로 표현 가능할 거 같다.</p>
+<p>예를 들어 과제를 하고 저장을 했다. 이 과제를 언제든지 불러오고 수정하고 다시 저장하는 과정을 오류없이 할 수 있어야하기 때문에 이러한 관점에서 persistence 라는 개념은 신뢰성을 의미한다. 만약 10시간을 해서 끝마친 과제를 발표를 위해 불러오려고 했는데 없어지거나 내용이 바뀌면,,,? 상상도 하기 싫다…</p>
+<ul>
+<li>  File System</li>
+<li>  I/O Devices</li>
+<li>  Journaling</li>
+</ul>
+<p>OS가 어디에 사용되는지와 목적에 따라 3가지 개념의 중요도가 달라진다. → 현대에는 3가지 개념이 없는 OS는 없다.</p>
+</div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6131c8caef517e00138503b3&amp;product=sticky-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/09/10/OS-1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2 - History of Operating System</span></a></div></nav><!--!--></div><!--!--><div class="column column-right is-3-tablet is-3-desktop is-3-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#들어가며"><span class="level-left"><span class="level-item">1</span><span class="level-item">들어가며</span></span></a></li><li><a class="level is-mobile" href="#Computer-Science-vs-Engineering"><span class="level-left"><span class="level-item">2</span><span class="level-item">Computer Science vs Engineering</span></span></a></li><li><a class="level is-mobile" href="#What-is-a-Computer-or-Computer-System"><span class="level-left"><span class="level-item">3</span><span class="level-item">What is a Computer or Computer System</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Application-Software"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">Application Software</span></span></a></li><li><a class="level is-mobile" href="#System-Software"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">System Software</span></span></a></li><li><a class="level is-mobile" href="#Computer-Hardware"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">Computer Hardware</span></span></a></li></ul></li><li><a class="level is-mobile" href="#What-is-Operating-System"><span class="level-left"><span class="level-item">4</span><span class="level-item">What is Operating System</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#왜-Why-OS-가-hardware-를-관리해주는가"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">왜 Why? OS 가 hardware 를 관리해주는가??</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Two-Perspectives-in-Operationg-System"><span class="level-left"><span class="level-item">5</span><span class="level-item">Two Perspectives in Operationg System</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Hardware-관점"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">Hardware 관점</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#제한된-자원을-관리"><span class="level-left"><span class="level-item">5.1.1</span><span class="level-item">제한된 자원을 관리</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Applications-관점"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">Applications 관점</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Computer-System-을-편리하게-사용하게-함"><span class="level-left"><span class="level-item">5.2.1</span><span class="level-item">Computer System 을 편리하게 사용하게 함</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#A-role-of-Operating-Systems"><span class="level-left"><span class="level-item">6</span><span class="level-item">A role of Operating Systems</span></span></a></li><li><a class="level is-mobile" href="#Three-Main-Features-of-Operating-Systems"><span class="level-left"><span class="level-item">7</span><span class="level-item">Three Main Features of Operating Systems</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Virtualization"><span class="level-left"><span class="level-item">7.1</span><span class="level-item">Virtualization</span></span></a></li><li><a class="level is-mobile" href="#Concurrency"><span class="level-left"><span class="level-item">7.2</span><span class="level-item">Concurrency</span></span></a></li><li><a class="level is-mobile" href="#Persistence"><span class="level-left"><span class="level-item">7.3</span><span class="level-item">Persistence</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/09/10/OS-1/"><img src="/img/OS/os_cover.jpeg" alt="2 - History of Operating System"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-10T07:10:27.000Z">2021-09-10</time></p><p class="title"><a href="/2021/09/10/OS-1/">2 - History of Operating System</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/09/03/OS-0/"><img src="/img/OS/os_cover.jpeg" alt="1 - Operating System Introduction"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-03T07:08:27.000Z">2021-09-03</time></p><p class="title"><a href="/2021/09/03/OS-0/">1 - Operating System Introduction</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Jiho Blog" height="28"></a><p class="is-size-7"><span>&copy; 2021 Jiho Ju</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
