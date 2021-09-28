@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>1.5 - Schematic Overview of Computer System - Jiho Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jiho Blog"><meta name="msapplication-TileImage" content="/img/logo.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jiho Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="들어가며..OS를 깊게 공부하기 전에 computer system의 각 구성요소와 담당 기능들을 기반으로 정리해보려고 합니다."><meta property="og:type" content="blog"><meta property="og:title" content="1.5 - Schematic Overview of Computer System"><meta property="og:url" content="http://example.com/2021/09/17/OS-1-5/"><meta property="og:site_name" content="Jiho Blog"><meta property="og:description" content="들어가며..OS를 깊게 공부하기 전에 computer system의 각 구성요소와 담당 기능들을 기반으로 정리해보려고 합니다."><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/OS/os_cover.jpeg"><meta property="article:published_time" content="2021-09-16T23:58:27.000Z"><meta property="article:modified_time" content="2021-09-28T00:28:47.929Z"><meta property="article:author" content="Jiho Ju"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/OS/os_cover.jpeg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/09/17/OS-1-5/"},"headline":"1.5 - Schematic Overview of Computer System","image":[],"datePublished":"2021-09-16T23:58:27.000Z","dateModified":"2021-09-28T00:28:47.929Z","author":{"@type":"Person","name":"Jiho Ju"},"publisher":{"@type":"Organization","name":"Jiho Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.png"}},"description":"들어가며..OS를 깊게 공부하기 전에 computer system의 각 구성요소와 담당 기능들을 기반으로 정리해보려고 합니다."}</script><link rel="canonical" href="http://example.com/2021/09/17/OS-1-5/"><link rel="icon" href="/img/logo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Jiho Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jiahho"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/OS/os_cover.jpeg" alt="1.5 - Schematic Overview of Computer System"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021, 09 17" title="2021. 9. 17. 오전 8:58:27">2021-09-17</time></span><span class="level-item"><a class="link-muted" href="/categories/OS/">OS</a></span></div></div><h1 class="title is-3 is-size-4-mobile">1.5 - Schematic Overview of Computer System</h1><div class="content"><h1 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며.."></a>들어가며..</h1><p>OS를 깊게 공부하기 전에 computer system의 각 구성요소와 담당 기능들을 기반으로 정리해보려고 합니다.</p>
+<span id="more"></span>
+
+<h1 id="Von-Neumann-Machine"><a href="#Von-Neumann-Machine" class="headerlink" title="Von Neumann Machine"></a>Von Neumann Machine</h1><p>현대에 모든 computer system들의 prototype은 Von Neumann Machine 이다.</p>
+<p>Von Neumann Machine에 기반한 컴퓨터는 다음 3가지가 충족되야 한다.</p>
+<ol>
+<li><strong>Arithmetic / Logic Unit</strong> 이 필요</li>
+<li>전체 제어를 할 수 있는 <strong>Control Unit</strong> 이 필요</li>
+<li>CPU는 <strong>오직 메모리(주기억장치로 cpu가 처리해야 할 instruction, data를 저장할 공간)랑만 통신</strong>이 가능</li>
+</ol>
+<p>어떤 프로그램을 CPU가 처리하게 하려면 해당 프로그램을 메모리에 저장(업로드)해줘야 한다. → <strong>Stored-program computer</strong></p>
+<p><img src="/img/OS/os1.5_3.png" alt="그림 1"></p>
+<p>[그림 1]을 통해 메모리와 CPU는 어떤 것들을 통신하고 구성하고 있는 요소들이 무엇인지 알아보자.</p>
+<h2 id="Central-Processing-Unit-프로세서-or-CPU"><a href="#Central-Processing-Unit-프로세서-or-CPU" class="headerlink" title="Central Processing Unit(프로세서 or CPU)"></a><strong>Central Processing Unit(프로세서 or CPU)</strong></h2><ul>
+<li><p>  <strong>Control Unit</strong>: 입출력 장친 간 통신 및 조율을 제어하며 명령어들을 읽고 해석하며 데이터 처리를 위한 시퀀스를 결정한다.</p>
+</li>
+<li><p>  <strong>Arithmetic / Logic Unit</strong>: 연산을 담당한다.</p>
+</li>
+<li><p><strong>Registers</strong></p>
+<p>  중앙처리장치(CPU)는 오직 메모리와만 통신이 가능하다. register는 메모리로부터 가져온 프로세스의 data들을 저장하는 저장장치이다. 프로세스 실행 시 프로세스의 정보를 저장하고 이를 가지고 CPU는 연산을 수행한다.</p>
+<ul>
+<li>  <strong>PC(Program Counter)</strong>: 다음에 수행될 명령어의 주소를 가지고 있는 레지스터</li>
+<li>  <strong>MDR(Memory Data Register)</strong>: 메모리와 CPU 사이의 데이터 교환 시 임시로 자료를 보관하는 레지스터로 계산된 데이터를 임시로 저장하는 역할을 한다.</li>
+<li><strong>AC(Accumulator)</strong>: 메모리로부터 읽어온 데이터와 AC에 저장되어 있던 데이터가 지정된 연산을 수행한 후 그 결과 값을 AC에 저장하는 누적 Accumulator이다.<br>  예를 들면 1+2 연산 후 x3 연산을 수행한다고 가정하면 1+2=3 결과값 3을 AC에 저장 후 3x3=9 결과값을 다시 AC에 저장한다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><p>Disk에 저장된 실행 가능 파일(프로그램)이 메모리에 업로드되면 그 프로그램은 프로세스가 된다. 프로세스는 <strong>Instruction과 Data들의 집합</strong> 이다.</p>
+<p><img src="/img/OS/os1.5_9.png" alt="그림 2"></p>
+<p>[그림 2]를 통해 위의 내용을 다시 간략히 정리해보자.</p>
+<p><strong>Memory</strong> 는 CPU가 바라보는 <strong>가상 메모리</strong> 이다. 메모리는 <strong>Byte addressable array</strong> 로 불리는데 주소 하나가 1Byte를 의미하기 때문이다. 메모리 주소 0 → 1Byte, 메모리 주소 1 → 1Byte…로 array 형태를 가진다. Code, 유저 데이터, 몇몇 OS 데이터들을 가진다.</p>
+<p><strong>Disk</strong> 에 있는 <strong>Executable Program(실행 가능 프로그램)</strong> 이 메모리에 올라가면 프로세스가 되며 CPU가 이 프로세스를 처리할 때 프로세스의 데이터들과 명령어들이 CPU 레지스터에 저장된다. 해당 instruction이 끝나면 PC(Program Counter)에 저장된 다음 instruction 주소에 해당하는 데이터와 instruction을 레지스터에 저장한다.</p>
+<p><img src="/img/OS/os1.5_1.png" alt="그림 3"></p>
+<h1 id="Mode-Bit"><a href="#Mode-Bit" class="headerlink" title="Mode Bit"></a>Mode Bit</h1><p>Mode bit 는 Program Status Word (PSW) register(하드웨어)에 저장된 flag 이다.</p>
+<ul>
+<li><strong>Mode bit 0</strong><ul>
+<li>  시스템이 kernel mode에 있다는 것을 표현</li>
+<li>  OS가 CPU(processor)의 권한을 얻는다.</li>
+</ul>
+</li>
+<li><strong>Mode bit 1</strong><ul>
+<li>  시스템이 user mode에 있다는 것을 표현</li>
+<li>  user application 이 실행 중 → user program 이 CPU 권한을 갖는다.</li>
+</ul>
+</li>
+</ul>
+<p>OS는 이렇게 mode bit 을 세팅하여 Dual mode를 갖는다.<br>Mode Bit 이 1인 경우 Interrupt, I/O, System call 등을 통해 user mode → kernel mode 로 바뀐다.</p>
+<p>이렇게 Dual mode 갖는 이유는 OS 자체를 보호하고 다른 시스템 요소들(memory protection)을 잘못되고 불법적인 프로그램 실행으로부터 보호하기 위함이다. 즉, <strong>안정석이 중요하여 현재 어떤 모드에 있는지 표현하여 명백하게 구별이 되야 한다.</strong></p>
+<ul>
+<li>  현재 실행 중인 프로그램이 user data와 함께 너무 많은 메모리를 잡아먹어 OS를 나가떨어지게 할 수 있다.</li>
+<li>  멀티 프로세스의 경우 같은 시스템 안에서 동시에 좋지 않은 결과들을 write 할 수 있다.</li>
+</ul>
+<p>실제 사용 예들은 밑의 다른 컴포넌트를 설명하며 자세히 정리해놨습니다.</p>
+<h1 id="Timer"><a href="#Timer" class="headerlink" title="Timer"></a>Timer</h1><p>Timer 의 주요 할 일은 특정 기간(시간) 이후에 CPU를 interrupt 시키는 것이다.</p>
+<p>예를 들어 시간이 지남에 따라 counter 가 감소된다고 가정하자. counter 가 0에 도달하게 되면 interrupt 가 발생하고 CPU 제어권은 OS에 넘겨진다. 이를 <strong>time interrupt</strong> 라고 한다.</p>
+<p>이는 어느 한 program이 CPU를 독점하는 것을 방지하기 위함이다. → <strong>time-sharing system</strong></p>
+<p><img src="/img/OS/os1.5_2.png" alt="그림 4"></p>
+<p>user program 에 할당된 시간은 1초라고 가정해보자.</p>
+<ul>
+<li>  program k 가 실행되는 동안 program k에 CPU 권한이 가있다. (mode bit: 1)</li>
+<li>  1초의 시간이 지나면 timer interrupt 가 발생하고 schedule 작업(다음에 어떤 task를 실행할지 결정)을 위해 CPU 권한을 OS에 넘겨준다. → 이를 위해선 user mode, kernel mode가 필요하며 또한 이를 위해 <strong>mode bit</strong>가 필요하다.</li>
+<li>  mode bit 가 1에서 0으롤 바뀌며 위와 같은 작업을 반복해서 수행한다.</li>
+</ul>
+<h1 id="I-O-Device"><a href="#I-O-Device" class="headerlink" title="I/O Device"></a>I/O Device</h1><p>I/O(scanf)가 발생하면 CPU는 어디에 저장하라는 명령만 한다. Device controller가 이를 받아서 처리하며 <strong>Device controller</strong>의 행동을 권장하는 프로그램이 <strong>Device driver</strong>이다.</p>
+<h2 id="I-O-Device-Controller"><a href="#I-O-Device-Controller" class="headerlink" title="I/O Device Controller"></a>I/O Device Controller</h2><p><code>CPU와 역할이 비슷하다!!</code></p>
+<ul>
+<li>  컴퓨터의 input/output bus에 연결된 하드웨어 유닛으로 하드웨어에게 computer와 I/O device들 사이의 interface를 제공해준다.</li>
+<li>  Local buffer ⇒ 시스템의 메모리 역할</li>
+<li>  I/O Processing이 끝난 후 device controller는 interrupt 신호를 CPU에게 보낸다.</li>
+</ul>
+<h2 id="Device-driver"><a href="#Device-driver" class="headerlink" title="Device driver"></a>Device driver</h2><p><code>OS와 역할이 비슷하다!!</code></p>
+<ul>
+<li><p>  컴퓨터에 연결된 특정 타입 devic를 operate, control 하는 <strong>computer program</strong>이다.</p>
+</li>
+<li><p><strong>하드웨어 device의 Software interface로 OS와 다른 컴퓨터 프로그램들이 정확한 세부사항들을 알 필요없이 하드웨어 기능(function)에 접근하게 해준다.</strong></p>
+<p>  ⇒ 즉, <strong>abstraction</strong>을 제공해주며 하드웨어 장치와 application, OS 사이에서 translator로서 작동한다.</p>
+</li>
+<li><p>  드라이버는 흔히 컴퓨터 버스, 또는 하드웨어와 이어진 통신 하위 시스템을 통해 장치와 통신한다. 요청하는 프로그램이 드라이버의 명령어를 호출하면, 드라이버는 장치에 명령어를 전달한다. 장치가 드라이버에게 데이터를 되돌려 주면, 드라이버는 원래 요청한 프로그램의 명령어로 데이터를 다시 전달한다</p>
+</li>
+<li><p>  ex) .sys in Window / .ko in Linux</p>
+</li>
+</ul>
+<h2 id="Input-Output-I-O-과정"><a href="#Input-Output-I-O-과정" class="headerlink" title="Input/Output(I/O) 과정"></a>Input/Output(I/O) 과정</h2><ol>
+<li>유저 Program으로부터 I/O를 요청(ex. scanf, printf)</li>
+<li>System call (user program 내)</li>
+<li>Mode bit이 1 → 0 (kernel mode)으로 변경된 후 OS가 CPU에 대한 권한을 얻는다.</li>
+<li>요청 I/O data를 device controller에게 보낸다. (이 시간에 타당한 I/O요청인지 결졍된다. 예를 들면 process가 인증이 됐는지?)</li>
+<li>Mode bit 0 → 1 로 변경된 후 다른 프로세스에게 권한을 주고 CPU는 해당 프로세스를 실행한다.</li>
+<li>I/O Processing이 끝났다는 신호를 받으면 다시 interrupt 으로 현재 실행 중인 process를 stop 한다.</li>
+<li>다시 Mode bit이 1 → 0 (kernel mode)으로 변경된 후 OS가 CPU에 대한 권한을 얻는다.</li>
+<li>OS는 device controller로부터 buffer 안에 저장된 data를 받는다.</li>
+<li>buffer data를 I/O를 요청했던 프로세스의 instruction의 메모리 or area에 저장한다.</li>
+<li>Mode bit 0 → 1 로 변경된 후 이전에 I/O로 인해 stop 된 프로세스에게 권한을 주고 CPU는 해당 프로세스를 실행한다.</li>
+</ol>
+<h1 id="Exception-Interrupt"><a href="#Exception-Interrupt" class="headerlink" title="Exception(Interrupt)"></a>Exception(Interrupt)</h1><p><strong>Exception(or Interrupt)<strong>는 몇몇 event로 인해 OS로의 권한 이동이다. 프로세스 상태가 바뀌면(event) mode bit은 0으로 바뀌게 되고 CPU 권한은 OS로 이동하게 된다. 이를E</strong>xception</strong> or <strong>Interrupt</strong> 이다.</p>
+<p><img src="/img/OS/os1.5_4.png" alt="그림 5"></p>
+<p>위 [그림 5]과 같이 event가 발생하면 CPU는 무엇을 해야할 지 모르며 이를 혼자서 처리하지 못한다. 이를 OS가 처리를 해야하며 이를 해결하기 위해선 CPU의 권한을 받아야 한다.(커널 모드)</p>
+<ul>
+<li>  return to I_current: 현재 명령어 줄로 되돌아간다.</li>
+<li>  return to I_next: 다음 명령어 줄로 리턴한다.</li>
+<li>  abort: 프로그램 전체를 Stop 시킨다.</li>
+</ul>
+<p>이는 어떤 exception이 발생하는 지에 따라 다르다. Exception은 2종류가 있다.</p>
+<h2 id="Asynchronous-Exceptions-Interrupt"><a href="#Asynchronous-Exceptions-Interrupt" class="headerlink" title="Asynchronous Exceptions : Interrupt"></a>Asynchronous Exceptions : Interrupt</h2><p>외부 하드웨어 device에 의해 발생하는 Exception(ex. I/O, timer)으로 CPU는 exception이 언제 발생할지 예측하지 못한다.</p>
+<p><strong>Exception Handler는 오직 “next” 명령을 리턴한다.</strong></p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<li><strong>Timer interrupt</strong><ul>
+<li>  외부의 timer chip은 interrupt를 trigger 한다.</li>
+<li>  user program으로 부터 CPU 권한을 가져와 kernel 모드에서 처리한다.</li>
+</ul>
+</li>
+<li><strong>I/O interrupt from external device</strong><ul>
+<li>  키보드에서 Ctrl-C를 눌렀을 때</li>
+<li>  네트워크로부터 패킷이 도착</li>
+<li>  I/O device들로부터 데이터가 도착</li>
+</ul>
+</li>
+</ul>
+<h2 id="Synchronous-Exceptions"><a href="#Synchronous-Exceptions" class="headerlink" title="Synchronous Exceptions"></a>Synchronous Exceptions</h2><p>한 instruction 실행 결과로서 생기는 event에 의해 발생하는 exception으로 CPU가 혼자서 처리를 할 수 없어 **스스로 문제제기(trigger)**를 한다. ⇒ <strong>“software interrupt”</strong> or <strong>“internal interrupt”</strong></p>
+<h3 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<li><p><strong>Traps</strong></p>
+<p>  의도적으로 exception을 발생시키는 것으로 이것만으로 문제가 되지 않는다. <strong>System calls</strong>, breakpoint traps, special instructions가 그 예이다. exception이 처리가 되면 exception이 발생한 “다음” instruction에 권한을 리턴한다.</p>
+<ul>
+<li>  <strong>Intentional</strong></li>
+<li>  <strong>Examples</strong>: System calls, breakpoint traps, special instructions</li>
+<li>  Returns control to <strong>“next”</strong> instruction</li>
+</ul>
+</li>
+<li><p><strong>Faults</strong></p>
+<p>  의도적으로 exception이 발생하지 않지만 해결이 가능한 경우가 존재한다. Faults 가 발생하는 과정을 예를 들어 정리해보자.</p>
+<p>  CPU는 메모리와만 통신이 가능하다. 이는 메모리에 필요한 data가 없는 경우 디스크에 있는 data를 메모리로 가져와야한다. a = 1 + 2 instruction을 수행하는 도중 2라는 data가 메모리에 존재하지 않아 page fault가 발생했다. disk에서 2를 가져와 메모리에 저장한 후 a = 1 + 2 명령어를 다시 수행하게 된다. 여기서 다른 exception과의 차이점은 다음 instruction이 아닌 현재 instruction을 다시 수행한다는 점이다.</p>
+<ul>
+<li>  <strong>Unintentional</strong> but <strong>possibly recoverable</strong></li>
+<li>  <strong>Examples</strong>: page faults (recoverable), protection faults (unrecoverable), floating point exceptions (divide by 0), invalid memory access …</li>
+<li>  Either re-executes faulting (<strong>“current”</strong>) instruction or <strong>aborts</strong></li>
+</ul>
+</li>
+<li><p><strong>Aborts</strong></p>
+<p>  의도적으로 exception이 발생하지 않으며 해결이 불가능하다. 명령어 자체에 오류가 생길 경우 프로그램 전체를 stop 시키고 프로그램을 처음부터 다시 실행해야 한다.</p>
+<ul>
+<li>  <strong>Unintentional</strong> and <strong>unrecoverable</strong></li>
+<li>  <strong>Examples</strong>: illegal instruction, parity error, machine check</li>
+<li>  <strong>Aborts current program</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Exception-정리"><a href="#Exception-정리" class="headerlink" title="Exception 정리"></a>Exception 정리</h2><ul>
+<li>  <strong>External</strong>(<strong>외부</strong>) <strong>exception</strong>: CPU가 예측할 수 없으며 외부 하드웨어에서 발생하며 이를 해결한 뒤 “next” instruction을 리턴한다.</li>
+<li>  <strong>Internal(내부) exception</strong>: CPU가 혼자 처리를 할 수 없어 스스로 문제를 제기한다.</li>
+</ul>
+<p><img src="/img/OS/os1.5_5.png" alt="그림 6"></p>
+<h2 id="Exception-처리-Handling"><a href="#Exception-처리-Handling" class="headerlink" title="Exception 처리(Handling)"></a>Exception 처리(Handling)</h2><p><img src="/img/OS/os1.5_6.png" alt="그림 7"></p>
+<p>[그림 7]을 보면 각 exception 내용마다 부여된 exception number(index)가 있다는 걸 알 수 있다.</p>
+<p>그럼 CPU에서 event 발생 시 어떤 exception이 발생했는지 OS에게 index 번호를 알려주어 OS는 어떤 이유로 stop이 됐는지 알게된다.</p>
+<p><img src="/img/OS/os1.5_7.png" alt="그림 8"></p>
+<p>바로 위에서 각 event들은 자신만에 unique한 exception number를 가지고 있다고 했다. 그럼 어떤 event가 발생하면 Exception Table에서 해당 event의 exception number(index)에 해당하는 값을 찾을 수 있다. 해당 index의 값은 Interrupt handler 이다.</p>
+<p><strong>Interrupt handler(Interrupt Service Routine, ISR)</strong> 는 특정 Interrupt에 관련된 code 블록이다. 쉽게 말하자면 <em>“Event를 어떻게 해결해야 되는지에 대한 solution”</em> 이라고 생각하면 된다.</p>
+<p>[그림 8]을 보면 exception이 발생해서 어떻게 이 exception을 처리하는 지 보여준다.</p>
+<ol>
+<li>device or CPU에 의해 interrupt가 요청된다.</li>
+<li>현재 CPU의 현재 상태(register, program counter…)를 PCB에 저장하고 context switch를 한다. (PCB, context switch 는 추후에 정리)</li>
+<li>CPU는 interrupt vector(address of the ISR)를 살펴보고 그 주소를 PC에 넣는다.<ul>
+<li>Interrupt Vector Table: memory location of an interrupt handler (0~255)</li>
+</ul>
+</li>
+<li>CPU는 ISR(Interrupt Service Routine, Interrupt handler)를 동작하게 한다.<ul>
+<li><strong>Interrupt Service Routine</strong>: 각 interrupt를 어떻게 handling할 지 알려주는 kernel function으로 logical interrupt value 를 리턴해준다.</li>
+</ul>
+</li>
+<li>레지스터들의 값을 restore 해준다.</li>
+<li>ISR이 끝나면 IRET가 시작된다.<ul>
+<li><strong>IRET</strong>: 프로세서의 상태를 restore 해주는 return instruction.</li>
+</ul>
+</li>
+<li>기존의 프로그램으로 리턴된다.</li>
+</ol>
+<h1 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h1><p>scanf(system call)로 인해 키보드로 “hello world” 를 입력한다고 가정을 해보자. 만약 ‘h’ 가 입력되면 data가 입력됐다고 interrupt 걸고 다시 ‘e’를 입력하면 interrupt 걸고,,,타이핑 하나마다 data가 들어왔다고 interrupt 걸면 효율성이 많이 떨어진다.</p>
+<p>그래서 data가 어느정도 size가 될 때까지 들어와 이정도면 됐어!라고 했을 때 한번에 메모리에 넣어주는 것이 더 효율적일 것이다.</p>
+<p><strong>이는 user mode 와 kernel 모드를 왔다갔다 하는 오버헤드를 최소화하기 위함이다.</strong></p>
+<p>이 역할을 하는 것이 바로 <strong>DMA(Direct Memory Access)</strong> 이다.</p>
+<p>DMA의 역할은 위에서 설명했듯이 외부 하드웨어 장비로부터 빈번한 interrupt가 발생되는 것을 줄이는 것이다.</p>
+<p>(Byte 단위가 아닌 Block 단위로 interrupt를 걸어준다.)</p>
+<p><img src="/img/OS/os1.5_8.png" alt="그림 9"></p>
+</div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6131c8caef517e00138503b3&amp;product=sticky-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/09/10/OS-1/"><span class="level-item">2 - History of Operating System</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><div class="column column-right is-3-tablet is-3-desktop is-3-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#들어가며"><span class="level-left"><span class="level-item">1</span><span class="level-item">들어가며..</span></span></a></li><li><a class="level is-mobile" href="#Von-Neumann-Machine"><span class="level-left"><span class="level-item">2</span><span class="level-item">Von Neumann Machine</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Central-Processing-Unit-프로세서-or-CPU"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">Central Processing Unit(프로세서 or CPU)</span></span></a></li><li><a class="level is-mobile" href="#Memory"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">Memory</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Mode-Bit"><span class="level-left"><span class="level-item">3</span><span class="level-item">Mode Bit</span></span></a></li><li><a class="level is-mobile" href="#Timer"><span class="level-left"><span class="level-item">4</span><span class="level-item">Timer</span></span></a></li><li><a class="level is-mobile" href="#I-O-Device"><span class="level-left"><span class="level-item">5</span><span class="level-item">I/O Device</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#I-O-Device-Controller"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">I/O Device Controller</span></span></a></li><li><a class="level is-mobile" href="#Device-driver"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">Device driver</span></span></a></li><li><a class="level is-mobile" href="#Input-Output-I-O-과정"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">Input/Output(I/O) 과정</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Exception-Interrupt"><span class="level-left"><span class="level-item">6</span><span class="level-item">Exception(Interrupt)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Asynchronous-Exceptions-Interrupt"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">Asynchronous Exceptions : Interrupt</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Examples"><span class="level-left"><span class="level-item">6.1.1</span><span class="level-item">Examples</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Synchronous-Exceptions"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">Synchronous Exceptions</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Examples-1"><span class="level-left"><span class="level-item">6.2.1</span><span class="level-item">Examples</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Exception-정리"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">Exception 정리</span></span></a></li><li><a class="level is-mobile" href="#Exception-처리-Handling"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">Exception 처리(Handling)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#DMA"><span class="level-left"><span class="level-item">7</span><span class="level-item">DMA</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/09/17/OS-1-5/"><img src="/img/OS/os_cover.jpeg" alt="1.5 - Schematic Overview of Computer System"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-16T23:58:27.000Z">2021-09-17</time></p><p class="title"><a href="/2021/09/17/OS-1-5/">1.5 - Schematic Overview of Computer System</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/09/10/OS-1/"><img src="/img/OS/os_cover.jpeg" alt="2 - History of Operating System"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-10T07:10:27.000Z">2021-09-10</time></p><p class="title"><a href="/2021/09/10/OS-1/">2 - History of Operating System</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/09/03/OS-0/"><img src="/img/OS/os_cover.jpeg" alt="1 - Operating System Introduction"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-03T07:08:27.000Z">2021-09-03</time></p><p class="title"><a href="/2021/09/03/OS-0/">1 - Operating System Introduction</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/08/22/openstack-2/"><img src="/img/openstack/openstack_cover.png" alt="Master Challenge - openstack server list 명령어 동작 원리 파악하기"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-08-22T07:10:27.000Z">2021-08-22</time></p><p class="title"><a href="/2021/08/22/openstack-2/">Master Challenge - openstack server list 명령어 동작 원리 파악하기</a></p><p class="categories"><a href="/categories/OpenStack/">OpenStack</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/08/20/openstack-1/"><img src="/img/openstack/openstack_cover.png" alt="Master Challenge - CLI와 친해지기"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-08-20T07:10:27.000Z">2021-08-20</time></p><p class="title"><a href="/2021/08/20/openstack-1/">Master Challenge - CLI와 친해지기</a></p><p class="categories"><a href="/categories/OpenStack/">OpenStack</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Jiho Blog" height="28"></a><p class="is-size-7"><span>&copy; 2021 Jiho Ju</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

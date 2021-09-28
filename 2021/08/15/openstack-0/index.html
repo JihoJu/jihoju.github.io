@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>OpenStack 이란 무엇인가?? - Jiho Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jiho Blog"><meta name="msapplication-TileImage" content="/img/logo.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jiho Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="들어가며이번 2021 컨트리뷰톤프로그램에 프로그램에 참여하게 되었습니다. 10주동안 오픈소스 프로젝트 가이드와 함께 오픈소스 contribution을 직접 경험하는 프로그램 입니다. 제가 참여하는 프로젝트 주제는 OpenStack 입니다. 앞으로 10주동안 OpenStack 프로젝트에서 배우는 내용들이나 기여하며 배운 내용들을 이 블로그에 게시하고자 합니다"><meta property="og:type" content="blog"><meta property="og:title" content="OpenStack 이란 무엇인가??"><meta property="og:url" content="http://example.com/2021/08/15/openstack-0/"><meta property="og:site_name" content="Jiho Blog"><meta property="og:description" content="들어가며이번 2021 컨트리뷰톤프로그램에 프로그램에 참여하게 되었습니다. 10주동안 오픈소스 프로젝트 가이드와 함께 오픈소스 contribution을 직접 경험하는 프로그램 입니다. 제가 참여하는 프로젝트 주제는 OpenStack 입니다. 앞으로 10주동안 OpenStack 프로젝트에서 배우는 내용들이나 기여하며 배운 내용들을 이 블로그에 게시하고자 합니다"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/openstack/openstack_cover.png"><meta property="article:published_time" content="2021-08-15T07:10:27.000Z"><meta property="article:modified_time" content="2021-09-28T00:38:59.767Z"><meta property="article:author" content="Jiho Ju"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/openstack/openstack_cover.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/08/15/openstack-0/"},"headline":"OpenStack 이란 무엇인가??","image":["http://example.com/img/openstack/openstack_cover.png"],"datePublished":"2021-08-15T07:10:27.000Z","dateModified":"2021-09-28T00:38:59.767Z","author":{"@type":"Person","name":"Jiho Ju"},"publisher":{"@type":"Organization","name":"Jiho Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.png"}},"description":"들어가며이번 2021 컨트리뷰톤프로그램에 프로그램에 참여하게 되었습니다. 10주동안 오픈소스 프로젝트 가이드와 함께 오픈소스 contribution을 직접 경험하는 프로그램 입니다. 제가 참여하는 프로젝트 주제는 OpenStack 입니다. 앞으로 10주동안 OpenStack 프로젝트에서 배우는 내용들이나 기여하며 배운 내용들을 이 블로그에 게시하고자 합니다"}</script><link rel="canonical" href="http://example.com/2021/08/15/openstack-0/"><link rel="icon" href="/img/logo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Jiho Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jiahho"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-9-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/openstack/openstack_cover.png" alt="OpenStack 이란 무엇인가??"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021, 08 15" title="2021. 8. 15. 오후 4:10:27">2021-08-15</time></span><span class="level-item"><a class="link-muted" href="/categories/OpenStack/">OpenStack</a></span></div></div><h1 class="title is-3 is-size-4-mobile">OpenStack 이란 무엇인가??</h1><div class="content"><h1 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h1><p>이번 <a target="_blank" rel="noopener" href="https://www.oss.kr/contribution_academy">2021 컨트리뷰톤프로그램</a>에 프로그램에 참여하게 되었습니다. 10주동안 오픈소스 프로젝트 가이드와 함께 오픈소스 contribution을 직접 경험하는 프로그램 입니다. 제가 참여하는 프로젝트 주제는 OpenStack 입니다. 앞으로 10주동안 OpenStack 프로젝트에서 배우는 내용들이나 기여하며 배운 내용들을 이 블로그에 게시하고자 합니다.</p>
+<blockquote><p><strong>OpenStack 팀 업스트림 컨트리뷰션 Home</strong>: <a target="_blank" rel="noopener" href="https://play.openstack-kr.org/pages/viewpage.action?pageId=12943363">https://play.openstack-kr.org/pages/viewpage.action?pageId=12943363</a></p>
+</blockquote>
+
+<span id="more"></span>
+
+<h1 id="OpenStack-이란"><a href="#OpenStack-이란" class="headerlink" title="OpenStack 이란??"></a>OpenStack 이란??</h1><h2 id="정의"><a href="#정의" class="headerlink" title="정의"></a>정의</h2><p><strong>OpenStack</strong> 은 한 Datacenter 의 compute, storage, networking의 큰 영역을 관리하는 <strong>“cloud operating system”</strong> 이다. 이 시스템은 일반적인 인증 체계와 함계 API 를 통해 관리된다. 간단히 말하자면 <strong>“클라우드 환경에서 컴퓨팅 자원과 스토리지, 네트워크 인프라를 셋업하고 구동하기 위해 사용하는 오픈 소스 소프트웨어 프로젝트의 집합”</strong> 이다.</p>
+<h3 id="다른-정의들"><a href="#다른-정의들" class="headerlink" title="다른 정의들"></a>다른 정의들</h3><ul>
+<li>  OpenStack 은 공용 (Public) 클라우드와 사설 (Private) 클라우드 구축을 가능하게 하는 오픈 소스 소프트웨어</li>
+<li>  서버, 스토리지, 네트워크들과 같은 자원들을 모두 모아, 이들을 제어하고 운영하기 위한 클라우드 Operating System</li>
+<li>  OpenStack 은 오픈 소스를 기반으로 클라우드를 구축하고 운용하고자 하는 오픈 소스 개발자, 회사, 사용자들이 주축이 되어 발전하는 커뮤니티</li>
+<li>  IaaS 형태의 클라우드 컴퓨팅 오픈 소스 프로젝트로 컴퓨팅, 스토리지, 네트워킹 자원을 관리하는 여러 개의 하위 프로젝트들로 이루어짐</li>
+</ul>
+<h2 id="나타나게된-이유-왜-openstack을-개발했는지"><a href="#나타나게된-이유-왜-openstack을-개발했는지" class="headerlink" title="나타나게된 이유 (왜 openstack을 개발했는지)"></a>나타나게된 이유 (왜 openstack을 개발했는지)</h2><p>OpenStack 은 2010년 NASA와 Rackspace가 하던 프로젝트를 오픈소스화하면서 처음으로 Austine 이라는 이름으로 릴리지를 하였다.</p>
+<p>2010년도쯤만 해도 오픈소스 기반 Infrastructure 가 없어 큰 비용을 지불하며 대부분 vendor 사의 상용 솔루션을 사용했다. 예를 들어, 우리가 회사에서 가상 머신을 써야한다면 상용 솔루션으로는 VMWare 를 많이 사용하고 오픈소스 기반으로 한다면 단순 KVM 을 사용해 클러스터를 만드는 것에 그쳤다.</p>
+<p>더 진보되서 Management, 가상 네트워크, Tenant 를 분리 등까지 가며 오픈소스 기반 Infrastructure 의 필요성이 대두되었다. 이렇게 해서 만들어진 것이 “OpenStack” 이다.</p>
+<h2 id="OpenStack-을-이루는-Components"><a href="#OpenStack-을-이루는-Components" class="headerlink" title="OpenStack 을 이루는 Components"></a>OpenStack 을 이루는 Components</h2><p>현재 OpenStack 은 “Cloud Infrastructure for Virtual Machines, Bare Metals and Containers” 이다.</p>
+<p>초기 오픈스택은 Virtual Machines 을 만드는데 주력했다. 그래서 초기 오픈스택은 compute, storage, image 로만 구성되어 있었다.</p>
+<p>현재 OpenStack 은 6개의 핵심 컴포넌트들과 30여 가지의 기타 컴포넌트들로 구성되어 있다.</p>
+<p><img src="https://www.openstack.org/assets/openstack-map/openstack-map-v20210201.svg" alt="OpenStack Landscape"></p>
+<p>빨간색 Section이 Core 컴포넌트 역할(필수적 요소들을 담당)을 한다.</p>
+<ul>
+<li>  <strong>nova (Computing Service)</strong></li>
+<li>  <strong>neutron (Networking)</strong></li>
+<li>  <strong>glance (Image Service)</strong></li>
+<li>  <strong>Cinder (Block Storage)</strong></li>
+<li>  <strong>swift (Object Storage)</strong></li>
+<li>  <strong>Keystone (Identity Service)</strong></li>
+</ul>
+<p>⇒ 6개 컴포넌트들이 Iaas 을 이루는 기본적인 기능(가상머신, 네트워크를 만들고 스토리지 제공)을 제공해준다.</p>
+<ul>
+<li><strong>Compute (컴퓨팅)</strong><ul>
+<li>  Nova (VM 인스턴스 관리)</li>
+</ul>
+</li>
+<li><strong>Storage (스토리지)</strong><ul>
+<li><strong>Swift(Objects)</strong><ul>
+<li>  Amazon 으로 따지면 S3 가 그런 역할</li>
+<li>  operation 단위가 block 단위가 아니라 object 단위 ⇒ file 단위로 operation 하는 Storage</li>
+</ul>
+</li>
+<li><strong>Cinder(Block)</strong> ( 가상 하드디스크 같은 읽고 쓰고 지우는 일반 디스크에 대한 자원 관리)<ul>
+<li>  Instance 들의 block device 같이게 있다. (Hardisk 와 같은 저장장치들)</li>
+<li>  왜 block storage? : 하드디스크나 ssd 같은 저장장치 운영체제에서 접근하면서 operation 을 내리는게 block 단위</li>
+</ul>
+</li>
+<li>  <strong>Glance(Images)</strong> → 이것을 기반으로 VM 인스턴스를 만들기 위한 특정 이미지 관리(우분투, 윈도우 같은 이미지 관리)</li>
+</ul>
+</li>
+<li><strong>Identity (인증)</strong><ul>
+<li>Keystone<ul>
+<li>  tenant 즉 오픈스택에선 project 들의 계정에 대한 인증 체계</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Network (네트워크)</strong><ul>
+<li>  (Quantum) Neutron</li>
+</ul>
+</li>
+<li><strong>웹 관리 포털</strong><ul>
+<li>Horizon<ul>
+<li>  서비스들을 쉽게 사용하기 위해 사용자들에게 Dashboard 를 제공하는 프로젝트</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="OpenStack-동작-방식"><a href="#OpenStack-동작-방식" class="headerlink" title="OpenStack 동작 방식"></a>OpenStack 동작 방식</h2><p>오픈스택이 클라우드 인프라를 만드는 방법에 대해 정리하겠습니다.</p>
+<h3 id="동일-컴포넌트-내"><a href="#동일-컴포넌트-내" class="headerlink" title="동일 컴포넌트 내"></a>동일 컴포넌트 내</h3><p>컴포넌트는 <strong>API 서버</strong>와 <strong>Agent</strong> 로 구성되어있다.</p>
+<ul>
+<li><p>API Server 가 클라이언트 혹은 다른 컴포넌트의 요청을 받아들인다.</p>
+<ul>
+<li>  예를 들어 nova 의 경우 인스턴스 생성이라는 요청을 처음 받는게 API Server 이다.</li>
+</ul>
+</li>
+<li><p>  API Server 는 REST API 를 제공해준다. ⇒ API Server 는 웹서버!!</p>
+</li>
+<li><p>뒷단에 있는 Agent 는 자원을 생성/삭제하는 역할을 한다. ⇒ Agent 는 자원(VM, Storage, Network)을 다룬다.</p>
+<ul>
+<li>  예를 들어 nova-compute agent 는 vm 을 생성/삭제한다.</li>
+</ul>
+</li>
+<li><p>API Server 가 요청을 받아들이면 이 요청을 Agent 들에게 보내줘야 한다.</p>
+<ul>
+<li>  이 과정이 Agent 에 있는 함수를 호출하는 것이다. ⇒ RPC Call 이라 부른다.</li>
+<li>  예) nova API 가 인스턴스 생성 요청을 받으면 nova compute 한테 RPC Call 을 해서 인스턴스를 만드는 것이다.</li>
+<li>  API 가 받은 요청을 Agent 가 처리할 수 있도록 명령하는 것 → rpc call</li>
+<li>여기서 RPC 를 전달하는 방식을 오픈스택에서는 AMQP 를 지원하는 MQ 를 이용한다.(대표적으로 RabbitMQ)<ul>
+<li>  API Server 가 Queue 에 Message 를 넣으면 Agent 가 Queue 에서 가져가는 방식이다.</li>
+</ul>
+</li>
+</ul>
+<p>  ⇒ 동일 컴포넌트 내에서는 RabbitMQ 를 통해 RPC 통신을 주고 받는다.</p>
+</li>
+</ul>
+<h3 id="다른-컴포넌트"><a href="#다른-컴포넌트" class="headerlink" title="다른 컴포넌트"></a>다른 컴포넌트</h3><p>컴포넌트가 자기 스스로 모든 일을 처리할 수 없다.</p>
+<p>예) nova-compute 가 vm을 생성하다가, vm에 연결할 block storage 생성을 cinder에 요청한다.</p>
+<p>이럴 경우 Agent 가 다른 컴포넌트의 API 를 호출한다. 이 요청을 받은 컴포넌트는 또다시 RabbitMQ를 통해서 Cinder Volume 한테 요청해 storage volume 을 생성한다.</p>
+<p>기본 동작</p>
+<ul>
+<li><p>  같은 컴포넌트 내에서는 RabbitMQ를 통해 rpc 통신을 한다.</p>
+</li>
+<li><p>  다른 컴포넌트를 호출하기 위해선 해당 컴포넌트의 API Server 를 호출한다.</p>
+</li>
+</ul>
+<h3 id="자원을-다루는-API는-대부분-비동기로-처리한다"><a href="#자원을-다루는-API는-대부분-비동기로-처리한다" class="headerlink" title="자원을 다루는 API는 대부분 비동기로 처리한다."></a>자원을 다루는 API는 대부분 비동기로 처리한다.</h3><p>인스턴스, 스토리지등을 만드는 과정 자체도 굉장히 복잡하기에 이 과정 하나하나가 Blocking I/O 로 처리가 된다면 굉장히 시간이 오래걸릴 것이다.</p>
+<p>Vm, Network, Storage 와 같은 자원을 다루는 API 는 모두 비동기로 처리된다.</p>
+<p>자원 생성의 경우, API 서버는 (PUT)요청을 받고 자원의 UUID와 함계 202 Accepted를 반환한다.</p>
+<p>자원을 요청한 쪽에서는 주기적으로 UUID 값으로 상태를 조회하며 생성여부를 확인한다. (timeout 시간 만큼 시도하다가, 확인되지 않으면 전체 요청을 실패처리한다.)</p>
+<h2 id="OpenStack-의-자원-관리-방법"><a href="#OpenStack-의-자원-관리-방법" class="headerlink" title="OpenStack 의 자원 관리 방법"></a>OpenStack 의 자원 관리 방법</h2><ul>
+<li>  OpenStack 이 storage / network / vm 자체를 직접 만들지 않는다.</li>
+<li>OpenStack 이 자원의 상태만 관리하고 자원의 실체는 다른 서비스를 사용한다.<ul>
+<li>  이런 이유때문에 오픈스택이 python 으로 충분히 동작을 할 수 있다!!</li>
+</ul>
+</li>
+<li>  OpenStack 실질직인 자원을 다루는 서비스와 연동하기 위해 다양한 Driver를 지원한다.</li>
+</ul>
+<h3 id="nova-에서-지원하는-하이퍼바이저"><a href="#nova-에서-지원하는-하이퍼바이저" class="headerlink" title="nova 에서 지원하는 하이퍼바이저"></a>nova 에서 지원하는 하이퍼바이저</h3><p>nova 는 실질적으로 인스턴스를 만들기 위해서 하이퍼바이저를 선택을 해줘야 한다. 결국 인스턴스를 만드는 기술들은 하이퍼바이저가 그 기술을 담당한다.</p>
+<p>대표적으로 KVM, VMware 사용한다.</p>
+<h3 id="OpenStack-의-전체적인-flow-인스턴스-생성"><a href="#OpenStack-의-전체적인-flow-인스턴스-생성" class="headerlink" title="OpenStack 의 전체적인 flow (인스턴스 생성)"></a>OpenStack 의 전체적인 flow (인스턴스 생성)</h3><ol>
+<li>nova API 가 인스턴스 생성 요청을 받음</li>
+<li>nova scheduler 라는 Agent 한테 요청이 들어온 vm 스펙대로 생성이 될 수 있는 하이퍼바이저를 선택해달라고 요청한다. ⇒ 즉, 스케줄링을 해달라는 것!<ul>
+<li>예) 4core 4GB 를 그거를 현재 만들 수 있는 하이퍼바이저를 찾아서 적절하게 선택을 해준다.</li>
+<li>스케줄링이 되는 기준은 내부적으로 filter 를 거친다. (가용할 cpu로 쳐내고 메모리로 쳐내고 이미지로 쳐내고 기준을 정할 수 있다.)</li>
+</ul>
+</li>
+<li>기준대로 쳐내서 마지막으로 선택된 하이퍼바이저를 다시 nova API 에게 전달해준다.</li>
+<li>그럼 Nova API 는 하이퍼바이저 정보를 알아낸 것!</li>
+<li>그럼 하이퍼바이저(Compute node 라고 불름!) 에서 돌고 있는 Nova compute 한테 VM 생성 요청을 보낸다.</li>
+</ol>
+<p>===== 현재 위의 모든 과정들이 <strong>rpc call(RabbitMQ)</strong> 를 통해 이루어지고 있다. ======</p>
+<ol start="6">
+<li><p>Nova Compute 는 요청을 받았으면 인스턴스가 만들어지기 위한 기본조건 2개가 필요</p>
+<ol>
+<li>네트워크</li>
+<li>스토리지</li>
+</ol>
+<p> ⇒ 이 두개의 리소스들을 생성 요청을 해야한다.</p>
+</li>
+<li><p>Neutron Server 와 Cinder API 한테 각각 vm에 사용할 네트워크 관련 정보 설정 요청, Block device 정보 요청을 보낸다.</p>
+</li>
+<li><p>이 두개의 컴포넌트들이 각각 비동기로 처리한다.</p>
+<ul>
+<li>Neutron Server 는 Compute node 에 있는 Neutron agent 한테 vm 에서 사용할 네트워크는 이 정도 내용이니 이것을 하이퍼바이저에 setting 하라는 명령을 보낸다.<ul>
+<li>예를 들어 openvswitch 를 쓰고 있다고 하면 이 것을 통해 하이퍼바이저 vm이 사용할 네트워크를 구성<ul>
+<li>openvswitch 에다가 VLAN 100 번을 쓸 수 있도록 네트워크 세팅을 하고 그 인스턴스가 사용할 인터페이스들을 다 만들어준다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cinder 도 NAS를 사용한다고 하면 NAS 에다가 Volume 파일을 생성하고 block device 를 만들어 놓는다.</li>
+</ul>
+</li>
+<li><p>8번 과정에서 주기적으로 nova compute 는 Neutron Server 와 Cinder API 에게 계속해서 네트워크가 다 만들어졌는지, 블록 디바이스가 만들어졌는지 확인한다. → timeout 시간동안에!!</p>
+</li>
+<li><p>timeout 시간 안에 이 리소스들이 다 만들어졌다면 비로소 인스턴스를 만든다.</p>
+</li>
+<li><p>KVM 을 쓴다면 리포트 API 를 통해서 실질적인 vm 을 생성한다.</p>
+</li>
+<li><p>만약 위의 과정에서 네트워크는 성공적으로 만들어졌는데 Cinder 에서 block storage 를 더이상 생성할 용량이 없다면 Volume 의 UUID 상태를 fail 로 바꿔버린다. ⇒ 그럼 nova 는 인스턴스 생성을 못하니 최종적으로 인스턴스 상태를 fail 로 바꿔버린다. 그래도 성공적으로 생성된 네트워크는 즉시 삭제가 되지 않는다! 일단 남겨두고 있다가 인스턴스 삭제 요청이 들어오면 이 때 이 인스턴스와 관련있는 정보들을 삭제하고 수거한다.</p>
+</li>
+</ol>
+<p>이것이 openstack 이 동작하는 전체적인 방식이라고 생각하면 된다.</p>
+</div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6131c8caef517e00138503b3&amp;product=sticky-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/08/20/openstack-1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Master Challenge - CLI와 친해지기</span></a></div></nav><!--!--></div><!--!--><div class="column column-right is-3-tablet is-3-desktop is-3-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#들어가며"><span class="level-left"><span class="level-item">1</span><span class="level-item">들어가며</span></span></a></li><li><a class="level is-mobile" href="#OpenStack-이란"><span class="level-left"><span class="level-item">2</span><span class="level-item">OpenStack 이란??</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#정의"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">정의</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#다른-정의들"><span class="level-left"><span class="level-item">2.1.1</span><span class="level-item">다른 정의들</span></span></a></li></ul></li><li><a class="level is-mobile" href="#나타나게된-이유-왜-openstack을-개발했는지"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">나타나게된 이유 (왜 openstack을 개발했는지)</span></span></a></li><li><a class="level is-mobile" href="#OpenStack-을-이루는-Components"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">OpenStack 을 이루는 Components</span></span></a></li><li><a class="level is-mobile" href="#OpenStack-동작-방식"><span class="level-left"><span class="level-item">2.4</span><span class="level-item">OpenStack 동작 방식</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#동일-컴포넌트-내"><span class="level-left"><span class="level-item">2.4.1</span><span class="level-item">동일 컴포넌트 내</span></span></a></li><li><a class="level is-mobile" href="#다른-컴포넌트"><span class="level-left"><span class="level-item">2.4.2</span><span class="level-item">다른 컴포넌트</span></span></a></li><li><a class="level is-mobile" href="#자원을-다루는-API는-대부분-비동기로-처리한다"><span class="level-left"><span class="level-item">2.4.3</span><span class="level-item">자원을 다루는 API는 대부분 비동기로 처리한다.</span></span></a></li></ul></li><li><a class="level is-mobile" href="#OpenStack-의-자원-관리-방법"><span class="level-left"><span class="level-item">2.5</span><span class="level-item">OpenStack 의 자원 관리 방법</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#nova-에서-지원하는-하이퍼바이저"><span class="level-left"><span class="level-item">2.5.1</span><span class="level-item">nova 에서 지원하는 하이퍼바이저</span></span></a></li><li><a class="level is-mobile" href="#OpenStack-의-전체적인-flow-인스턴스-생성"><span class="level-left"><span class="level-item">2.5.2</span><span class="level-item">OpenStack 의 전체적인 flow (인스턴스 생성)</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/09/17/OS-1-5/"><img src="/img/OS/os_cover.jpeg" alt="1.5 - Schematic Overview of Computer System"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-16T23:58:27.000Z">2021-09-17</time></p><p class="title"><a href="/2021/09/17/OS-1-5/">1.5 - Schematic Overview of Computer System</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/09/10/OS-1/"><img src="/img/OS/os_cover.jpeg" alt="2 - History of Operating System"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-10T07:10:27.000Z">2021-09-10</time></p><p class="title"><a href="/2021/09/10/OS-1/">2 - History of Operating System</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/09/03/OS-0/"><img src="/img/OS/os_cover.jpeg" alt="1 - Operating System Introduction"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-09-03T07:08:27.000Z">2021-09-03</time></p><p class="title"><a href="/2021/09/03/OS-0/">1 - Operating System Introduction</a></p><p class="categories"><a href="/categories/OS/">OS</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/08/22/openstack-2/"><img src="/img/openstack/openstack_cover.png" alt="Master Challenge - openstack server list 명령어 동작 원리 파악하기"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-08-22T07:10:27.000Z">2021-08-22</time></p><p class="title"><a href="/2021/08/22/openstack-2/">Master Challenge - openstack server list 명령어 동작 원리 파악하기</a></p><p class="categories"><a href="/categories/OpenStack/">OpenStack</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/08/20/openstack-1/"><img src="/img/openstack/openstack_cover.png" alt="Master Challenge - CLI와 친해지기"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-08-20T07:10:27.000Z">2021-08-20</time></p><p class="title"><a href="/2021/08/20/openstack-1/">Master Challenge - CLI와 친해지기</a></p><p class="categories"><a href="/categories/OpenStack/">OpenStack</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Jiho Blog" height="28"></a><p class="is-size-7"><span>&copy; 2021 Jiho Ju</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
